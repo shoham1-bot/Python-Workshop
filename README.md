@@ -37,7 +37,7 @@ CreatedBy: platform-cli
 Owner: (Extracted from your AWS IAM User)
 
 
-🧹 Cleanup Instructions
+Cleanup Instructions
 To avoid AWS costs:
 
 Use the EC2 menu to stop/terminate instances.
@@ -47,15 +47,14 @@ Use the S3 menu to list and then manually delete buckets via the AWS Console (or
 Ensure Route53 Hosted Zones are deleted when no longer needed.
 
 
-### 4. Working CLI & Security (DoD #2 & #4)
-Your script already handles the core constraints and security:
+Working CLI & Security
+My script already handles the core constraints and security:
 * **Constraints:** It blocks instance types other than `t3.micro`/`t2.small` and enforces the 2-instance running cap.
 * **Security:** By using `boto3.resource()` without hardcoding keys, it forces the use of **AWS Profiles** or **Roles**, preventing secrets from leaking into your Git history.
 * **Tagging:** It validates the `CreatedBy` tag before allowing any "Start/Stop" or "Record Management" actions.
 
----
 
-### 5. Demo Evidence (DoD #5)
+Demo Evidence
 For your submission, run these commands and copy the output into a file named `DEMO.md` or as an appendix in your README:
 
 1.  **EC2 Create:** Run `py platform_cli.py`, choose `ec2`, then `create`. Screenshot the "✅ Created" message.
